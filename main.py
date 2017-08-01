@@ -29,6 +29,11 @@ class MainHandler(webapp2.RequestHandler):
         self.response.write(my_template.render())
 
 class HangmanHandler(webapp2.RequestHandler):
+    # def initialize(self):
+    #     words = ["dog", "cat", "google", "spratt"]
+    #     num_guess = 0;
+    #     guess = ""
+
     def get(self):
         my_template = jinja_environment.get_template("templates/hangman.html")
         self.response.write(my_template.render())

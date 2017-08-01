@@ -43,8 +43,15 @@
           <div id = "container">
             <p id = "lives"> You have 5 lives left! </p>
             <div id = "letters">
-             <button type="button"> A </button>
-             <button type="button"> B </button>
+              <p id="demo"></p>
+             <button type="button" onclick = "myFunction()" id = "myBtn" value = "A"> A </button>
+             <script>
+             function myFunction() {
+               var x = document.getElementById("myBtn").value;
+               document.getElementById("demo").innerHTML = x;
+              }
+             </script>
+             <!-- <button type="button"> B </button>
              <button type="button"> C </button>
              <button type="button"> D </button>
              <button type="button"> E </button>
@@ -68,7 +75,7 @@
              <button type="button"> W </button>
              <button type="button"> X </button>
              <button type="button"> Y </button>
-             <button type="button"> Z </button>
+             <button type="button"> Z </button> -->
            </br>
            </br>
            </br>
