@@ -44,13 +44,11 @@
             <p id = "lives"> You have 5 lives left! </p>
             <div id = "letters">
               <p id="demo"></p>
-             <button type="button" onclick = "myFunction()" id = "myBtn" value = "A"> A </button>
-             <script>
-             function myFunction() {
-               var x = document.getElementById("myBtn").value;
-               document.getElementById("demo").innerHTML = x;
-              }
-             </script>
+            {% for letter in letters %}
+             <button type="button" onclick = "myFunction()" id = "myBtn" value = "{{letter}}"> {{letter}} </button>
+             {%endfor%}
+
+
              <!-- <button type="button"> B </button>
              <button type="button"> C </button>
              <button type="button"> D </button>

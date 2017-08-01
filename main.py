@@ -17,6 +17,7 @@
 import webapp2
 import jinja2
 import os
+import string
 
 
 jinja_environment = jinja2.Environment(
@@ -35,8 +36,11 @@ class HangmanHandler(webapp2.RequestHandler):
     #     guess = ""
 
     def get(self):
+        render_dict = {
+        "letters": string.ascii_uppercase
+        }
         my_template = jinja_environment.get_template("templates/hangman.html")
-        self.response.write(my_template.render())
+        self.response.write(my_template.render(render_dict))
 
 class HighScoreHandler(webapp2.RequestHandler):
     def get(self):
