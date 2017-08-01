@@ -1,12 +1,13 @@
 
 function myFunction(event){
   var x = event.target.value;
-  $("#correctguess").html(x);
+  var res = $("#correctguess").html().concat(x);
+  $("#correctguess").html(res);
  }
 
-function checkGuess(){
-   for()
-}
+// function checkGuess(){
+//    for()
+// }
 
 $(document).ready(function(){
   var word_list = ["cat"]
