@@ -17,8 +17,12 @@
 import webapp2
 import jinja2
 import os
+<<<<<<< HEAD
 from google.appengine.api import users
 
+=======
+import string
+>>>>>>> 65d688cf2659d8f62829ccdb73cd07ab5b490290
 
 
 jinja_environment = jinja2.Environment(
@@ -52,9 +56,17 @@ class MainHandler(webapp2.RequestHandler):
 
 
 class HangmanHandler(webapp2.RequestHandler):
+    # def initialize(self):
+    #     words = ["dog", "cat", "google", "spratt"]
+    #     num_guess = 0;
+    #     guess = ""
+
     def get(self):
+        render_dict = {
+        "letters": string.ascii_uppercase
+        }
         my_template = jinja_environment.get_template("templates/hangman.html")
-        self.response.write(my_template.render())
+        self.response.write(my_template.render(render_dict))
 
 class HighScoreHandler(webapp2.RequestHandler):
     def get(self):
