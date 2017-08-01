@@ -17,12 +17,9 @@
 import webapp2
 import jinja2
 import os
-<<<<<<< HEAD
 from google.appengine.api import users
 
-=======
 import string
->>>>>>> 65d688cf2659d8f62829ccdb73cd07ab5b490290
 
 
 jinja_environment = jinja2.Environment(
