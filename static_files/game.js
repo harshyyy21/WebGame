@@ -1,5 +1,5 @@
-var word_list = ["cat"];
-var word = "cat";
+var word_list = ["cat", "cheat"];
+var word = "cheat";
 var spaces = word.length;
 var i = 0;
 var string1 = "";
@@ -22,8 +22,8 @@ function myFunction(event){
 
 
 $(document).ready(function(){
-  var word_list = ["cat"]
-  var word = "cat"
+  var word_list = ["cat", "cheat"]
+  var word = "cheat"
   var spaces = word.length;
   var i = 0;
 
