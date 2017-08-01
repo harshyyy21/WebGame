@@ -1,5 +1,5 @@
-var word_list = ["cat"];
-var word = "cat";
+var word_list = ["cat", "cheat"];
+var word = "cheat";
 var spaces = word.length;
 var i = 0;
 var string1 = "";
@@ -12,10 +12,6 @@ while(i < spaces){
 function myFunction(event){
   var x = event.target.value;
   var res = $("#correctguess").html().concat(x);
-  var word = "cat";
-  var rightwrong= word.indexOf(x.toLocaleLowerCase());
-  if (rightwrong >= 0){
-  $("#correctguess").html(res);
   var rightwrong = word.indexOf(x.toLocaleLowerCase());
   if(rightwrong >= 0){
     var guess = $("#correctguess").html();
@@ -23,11 +19,11 @@ function myFunction(event){
     $("#correctguess").html(final);
   }
  }
- }
 
 
 $(document).ready(function(){
-  var word = "cat"
+  var word_list = ["cat", "cheat"]
+  var word = "cheat"
   var spaces = word.length;
   var i = 0;
 
