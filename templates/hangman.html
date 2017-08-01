@@ -2,11 +2,13 @@
 <html>
   <head>
     <!-- Material Design Lite -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     <!-- Material Design icon font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel= "stylesheet" href="/resources/game.css"/>
+    <script src = "/resources/game.js"></script>
 
   </head>
   <body>
@@ -45,35 +47,9 @@
             <div id = "letters">
               <p id="demo"></p>
             {% for letter in letters %}
-             <button type="button" onclick = "myFunction()" id = "myBtn" value = "{{letter}}"> {{letter}} </button>
+             <button type="button" id = "{{letter}}btn" value = "{{letter}}"> {{letter}} </button>
              {%endfor%}
 
-
-             <!-- <button type="button"> B </button>
-             <button type="button"> C </button>
-             <button type="button"> D </button>
-             <button type="button"> E </button>
-             <button type="button"> F </button>
-             <button type="button"> G </button>
-             <button type="button"> H </button>
-             <button type="button"> I </button>
-             <button type="button"> J </button>
-             <button type="button"> K </button>
-             <button type="button"> L </button>
-             <button type="button"> M </button>
-             <button type="button"> N </button>
-             <button type="button"> O </button>
-             <button type="button"> P </button>
-             <button type="button"> Q </button>
-             <button type="button"> R </button>
-             <button type="button"> S </button>
-             <button type="button"> T </button>
-             <button type="button"> U </button>
-             <button type="button"> V </button>
-             <button type="button"> W </button>
-             <button type="button"> X </button>
-             <button type="button"> Y </button>
-             <button type="button"> Z </button> -->
            </br>
            </br>
            </br>

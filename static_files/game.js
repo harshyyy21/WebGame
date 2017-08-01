@@ -1,4 +1,13 @@
-function myFunction() {
-  var x = document.getElementById("myBtn").value;
-  document.getElementById("demo").innerHTML = x;
+function myFunction(event){
+  var x = event.target.value;
+  $("#demo").html(x) = x;
+  console.log(x)
+  console.log(event.target)
  }
+
+
+$(document).ready(function(){
+
+  $("button").click(myFunction);
+}
+)
