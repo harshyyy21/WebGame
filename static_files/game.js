@@ -1,12 +1,6 @@
-var word_list = ["cat", "cheat"];
-var word = "cheat";
-var spaces = word.length;
-var i = 0;
-var string1 = "";
-while(i < spaces){
-  string1 += "__ ";
-  i++;
-}
+var word_list;
+var word;
+var spaces;
 
 
 function myFunction(event){
@@ -18,13 +12,16 @@ function myFunction(event){
     var final = guess.substring(0, rightwrong*3) + " " + x + " " + guess.substring((rightwrong+1) *3,  guess.length);
     $("#correctguess").html(final);
   }
+  else{
+
+  }
  }
 
 
 $(document).ready(function(){
-  var word_list = ["cat", "cheat"]
-  var word = "cheat"
-  var spaces = word.length;
+  word_list = ["cat", "cheat"]
+  word = "cheat"
+  spaces = word.length;
   var i = 0;
 
   while(i < spaces){
@@ -32,7 +29,7 @@ $(document).ready(function(){
     i++;
   }
 
-  $("button").click(myFunction);
+  $("button.letter").click(myFunction);
 
 }
 )
