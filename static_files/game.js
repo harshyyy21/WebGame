@@ -1,3 +1,13 @@
+var word_list = ["cat"];
+var word = "cat";
+var spaces = word.length;
+var i = 0;
+var string1 = "";
+while(i < spaces){
+  string1 += "__ ";
+  i++;
+}
+
 
 function myFunction(event){
   var x = event.target.value;
@@ -6,12 +16,15 @@ function myFunction(event){
   var rightwrong= word.indexOf(x.toLocaleLowerCase());
   if (rightwrong >= 0){
   $("#correctguess").html(res);
+  var rightwrong = word.indexOf(x.toLocaleLowerCase());
+  if(rightwrong >= 0){
+    var guess = $("#correctguess").html();
+    var final = guess.substring(0, rightwrong*3) + " " + x + " " + guess.substring((rightwrong+1) *3,  guess.length);
+    $("#correctguess").html(final);
+  }
  }
  }
 
-// function checkGuess(){
-//    for()
-// }
 
 $(document).ready(function(){
   var word = "cat"
@@ -19,9 +32,11 @@ $(document).ready(function(){
   var i = 0;
 
   while(i < spaces){
-  $("#spaces").append("__ ");
+  $("#correctguess").append("__ ");
     i++;
   }
+
   $("button").click(myFunction);
+
 }
 )
