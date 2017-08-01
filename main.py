@@ -17,6 +17,8 @@
 import webapp2
 import jinja2
 import os
+from google.appengine.api import users
+
 
 
 jinja_environment = jinja2.Environment(
@@ -24,9 +26,30 @@ jinja_environment = jinja2.Environment(
 
 
 class MainHandler(webapp2.RequestHandler):
+
     def get(self):
+        user = users.get_current_user()
+        if user:
+            nickname = user.nickname()
+            logout_url = users.create_logout_url('/home')
+            greeting = 'Welcome, {}! (<a href="{}">sign out</a>)'.format(
+                nickname, logout_url)
+        else:
+            login_url = users.create_login_url('/home')
+            greeting = '<a href="%s">Sign in</a>' % (login_url)
         my_template = jinja_environment.get_template("templates/home.html")
-        self.response.write(my_template.render())
+        render_data = {
+        'signin' : login_url
+        }
+        self.response.write(my_template.render(render_data))
+
+
+
+        self.response.write(
+            '<html><body>{}</body></html>'.format(greeting))
+
+
+
 
 class HangmanHandler(webapp2.RequestHandler):
     def get(self):
@@ -43,6 +66,26 @@ class AboutUsHandler(webapp2.RequestHandler):
         my_template = jinja_environment.get_template("templates/aboutus.html")
         self.response.write(my_template.render())
 
+class MainPage(webapp2.RequestHandler):
+    def get(self):
+        user = users.get_current_user()
+        if user:
+            nickname = user.nickname()
+            logout_url = users.create_logout_url('/home')
+            greeting = 'Welcome, {}! (<a href="{}">sign out</a>)'.format(
+                nickname, logout_url)
+        else:
+            login_url = users.create_login_url('/home')
+            greeting = '<a href="%s">Sign in</a>' % (login_url)
+        my_template = jinja_environment.get_template("templates/home.html")
+        render_data = {
+        'signin' : login_url
+        }
+        self.response.write(my_template.render(render_data))
+        self.response.write(
+            '<html><body>{}</body></html>'.format(greeting))
+
+
 
 
 
@@ -50,5 +93,7 @@ app = webapp2.WSGIApplication([
     ('/home', MainHandler),
     ('/hangman', HangmanHandler),
     ('/highscore', HighScoreHandler),
-    ('aboutus', AboutUsHandler)
+    ('/aboutus', AboutUsHandler),
+    ('/signin', MainPage)
+
 ], debug=True)
