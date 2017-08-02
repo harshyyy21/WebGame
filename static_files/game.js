@@ -22,8 +22,9 @@ function myFunction(word, event) {
     $("#lives").html(wrongcounter);
   }
   if (correctcounter == word.length){
-    $("#wrongguess").show();
-    $("#wrongguess").html("You Win!");
+    $("#winner").show();
+    $("#winner").html("You Win!");
+    return;
 
   }
 }
