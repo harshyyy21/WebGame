@@ -2,11 +2,13 @@ function myFunction(word, event) {
   var x = event.target.value; // .id gets the button id
   var res = $("#correctguess").html().concat(x);
   var rightwrong = word.indexOf(x.toLocaleLowerCase());
+  var correctguess = word.length;
   $("#wrongguess").html("Wrong Guess!");
   $("#wrongguess").hide()
   if (rightwrong >= 0) {
     for (i = 0; i < word.length; i++) {
       if (x.toLocaleLowerCase() == word.charAt(i)) {
+        correctguess -= 1;
         var guess = $("#correctguess").html();
         var final = guess.substring(0, i * 3) + " " + x + " " + guess.substring((i + 1) * 3, guess.length);
         $("#correctguess").html(final);
@@ -47,6 +49,9 @@ function myFunction(word, event) {
     else{
       eyes.hide();
       mouth.show();
+    }
+    if (correctguess == 0){
+      $("#wrongguess").html("You Win!");
     }
   }
 
