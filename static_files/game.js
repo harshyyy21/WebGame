@@ -21,8 +21,9 @@ function myFunction(event) {
         $("#correctguess").html(final);
       }
     }
+    }
   }
-}
+
 
 
 $(document).ready(function() {

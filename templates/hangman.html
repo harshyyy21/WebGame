@@ -53,11 +53,11 @@
 
           <div id = "container">
             <p id = "lives"> You have 5 lives left! </p>
+            <!-- <p id = "wrongguess"></p> -->
             <br>
             <br>
             <div id = "letters">
               <p id="correctguess"></p>
-              <!-- <p id = "spaces"></p> -->
             {% for letter in letters %}
              <button type="button" id = "{{letter}}btn" value = "{{letter}}"> {{letter}} </button>
              {%endfor%}
