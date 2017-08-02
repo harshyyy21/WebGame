@@ -84,11 +84,13 @@ button:hover {
 
 #wrongguess{
   height:50px;
-  width:100px;
+  width:200px;
   margin: -20px -50px;
   position:relative;
   top:50%;
   left:50%;
+  font-size: 20px;
+  color: red;
 }
 
 #correctguess{
