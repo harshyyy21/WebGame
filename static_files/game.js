@@ -13,9 +13,9 @@ function myFunction(event) {
   var x = event.target.value;// .id gets the button id
   var res = $("#correctguess").html().concat(x);
   var rightwrong = word.indexOf(x.toLocaleLowerCase());
+  $("#wrongguess").html("Wrong Guess!");
+  $("#wrongguess").hide()
   if (rightwrong >= 0) {
-    $("#wrongguess").html("Wrong Guess!");
-    $("#wrongguess").hide()
     for (i=0; i < word.length; i++) {
       if (x.toLocaleLowerCase() == word.charAt(i)) {
         var guess = $("#correctguess").html();
@@ -26,6 +26,7 @@ function myFunction(event) {
   }else{
     $("#wrongguess").show();
   }
+}
 
 
 
