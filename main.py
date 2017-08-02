@@ -68,8 +68,12 @@ class HangmanHandler(webapp2.RequestHandler):
 
 class HighScoreHandler(webapp2.RequestHandler):
     def get(self):
-        my_template = jinja_environment.get_template("templates/highschore.html")
-        self.response.write(my_template.render())
+        # my_template = jinja_environment.get_template("templates/highschore.html")
+        # self.response.write(my_template.render())
+        getting_all_results = HighScoreModel.query()
+        for results in getting_all_results:
+            scorewrite= "<br/>" + results.username +"  " +str(results.score)
+            self.response.write(scorewrite)
 
 class AboutUsHandler(webapp2.RequestHandler):
     def get(self):
