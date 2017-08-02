@@ -16,6 +16,7 @@
 #
 import webapp2
 import jinja2
+from google.appengine.ext import ndb
 import os
 from google.appengine.api import users
 
@@ -93,6 +94,10 @@ class MainPage(webapp2.RequestHandler):
         self.response.write(my_template.render(render_data))
         self.response.write(
             '<html><body>{}</body></html>'.format(greeting))
+
+class HighScoreModel(ndb.Model):
+    username = ndb.StringProperty()
+    score = ndb.IntegerProperty()
 
 
 
