@@ -3,6 +3,7 @@ correctcounter = 0;
 function myFunction(word, event) {
   var y = event.target;
   $(y).prop("disabled", true);
+  $(y).addClass("NoClick");
   var x = event.target.value; // .id gets the button id
   var res = $("#correctguess").html().concat(x);
   var rightwrong = word.indexOf(x.toLocaleLowerCase());

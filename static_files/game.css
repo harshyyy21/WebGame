@@ -30,6 +30,7 @@ div.userlives {
   font-size: 25px;
   text-align: center;
   position: relative;
+  display:block;
 }
 
 #lives {
@@ -112,4 +113,8 @@ div.userlives {
   position: relative;
   top: 50%;
   left: 50%;
+}
+.NoClick {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
