@@ -16,29 +16,37 @@ function myFunction(word, event) {
     $("#wrongguess").show();
     wrongcounter -= 1;
     $("#lives").html(wrongcounter);
-    // if (wrongcounter = 8){
-    //   head.show();
-    // }
-    // else if(wrongcounter = 7){
-    //   body.show();
-    // }
-    // else if(wrongcounter = 6){
-    //   leftarm.show();
-    // }
-    // else if(wrongcounter = 5){
-    //   rightarm.show();
-    // }
-    // else if(wrongcounter = 4){
-    //   leftleg.show();
-    // }
-    // else if(wrongcounter = 3){
-    //   rightleg.show();
-    // }
-    // else if(wrongcounter = 2){
-    //   eyes.show();
-    // }
-    // else{
-    //   mouth.show();
+    if (wrongcounter = 8){
+      original.hide();
+      head.show();
+    }
+    else if(wrongcounter = 7){
+      head.hide();
+      body.show();
+    }
+    else if(wrongcounter = 6){
+      body.hide();
+      leftarm.show();
+    }
+    else if(wrongcounter = 5){
+      leftarm.hide();
+      rightarm.show();
+    }
+    else if(wrongcounter = 4){
+      rightarm.hide();
+      leftleg.show();
+    }
+    else if(wrongcounter = 3){
+      leftleg.hide();
+      rightleg.show();
+    }
+    else if(wrongcounter = 2){
+      rightleg.hide();
+      eyes.show();
+    }
+    else{
+      eyes.hide();
+      mouth.show();
     }
   }
 
@@ -52,9 +60,7 @@ $(document).ready(function() {
   var word_list = ["rose","monica","christi","fausto","kevin","oge","gonzalo","makenna","amelia","melissa","patrycja","luke","andrew","nicole","marcelo","jorge","jigar","harsh","ivana","david","dimitri","stevie","spratt","francesca","courtney","francisco","andy"];
   var number = Math.round((Math.random()*word_list.length));
   var word = word_list[number];
-  console.log(number)
   var spaces = word.length;
-  console.log(word + spaces)
   var i = 0;
 
   while (i < spaces) {
