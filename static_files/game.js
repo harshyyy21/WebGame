@@ -1,5 +1,5 @@
 var word_list = ["rose","monica","christi","fausto","kevin","oge","gonzalo","makenna","amelia","melissa","patrycja","luke","andrew","nicole","marcelo","jorge","jigar","harsh","ivana","david","dimitri","stevie","spratt","francesca","courtney","francisco","andy"];
-var number = Math.round((Math.random()* word_list.length-1)+1);
+var number = Math.round((Math.random()* word_list.length-1));
 var word = word_list[number];
 var spaces = word.length;
 var counter = 9
@@ -36,7 +36,7 @@ function myFunction(event) {
 
 $(document).ready(function() {
   var word_list = ["rose","monica","christi","fausto","kevin","oge","gonzalo","makenna","amelia","melissa","patrycja","luke","andrew","nicole","marcelo","jorge","jigar","harsh","ivana","david","dimitri","stevie","spratt","francesca","courtney","francisco","andy"];
-  var number = Math.round((Math.random()*word_list.length-1)+1);
+  var number = Math.round((Math.random()*word_list.length-1));
   var word = word_list[number];
   var spaces = word.length;
   var i = 0;
