@@ -26,6 +26,7 @@ function myFunction(event) {
   }else{
     $("#wrongguess").show();
   }
+}
 
 
 
