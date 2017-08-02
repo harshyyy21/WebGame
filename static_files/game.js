@@ -73,9 +73,7 @@ function myFunction(word, event) {
 
   }
   if (correctcounter == word.length){
-    $("#winner").show();
     $("#winner").html("You Win!");
-    return;
 
   }
 }
