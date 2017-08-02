@@ -114,3 +114,7 @@ div.userlives {
   top: 50%;
   left: 50%;
 }
+.NoClick {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
