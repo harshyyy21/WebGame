@@ -73,8 +73,7 @@ function myFunction(word, event) {
 
   }
   if (correctcounter == word.length){
-    $("#wrongguess").show();
-    $("#wrongguess").html("You Win!");
+    $("#winner").html("You Win!");
 
   }
 }
