@@ -1,3 +1,5 @@
+wrongcounter =9;
+correctcounter = 0;
 function myFunction(word, event) {
   var x = event.target.value; // .id gets the button id
   var res = $("#correctguess").html().concat(x);
@@ -7,6 +9,7 @@ function myFunction(word, event) {
   if (rightwrong >= 0) {
     for (i = 0; i < word.length; i++) {
       if (x.toLocaleLowerCase() == word.charAt(i)) {
+        correctcounter +=1;
         var guess = $("#correctguess").html();
         var final = guess.substring(0, i * 3) + " " + x + " " + guess.substring((i + 1) * 3, guess.length);
         $("#correctguess").html(final);
@@ -17,6 +20,11 @@ function myFunction(word, event) {
     $("#wrongguess").show();
     wrongcounter -= 1;
     $("#lives").html(wrongcounter);
+  }
+  if (correctcounter == word.length){
+    $("#wrongguess").show();
+    $("#wrongguess").html("You Win!");
+
   }
 }
   //   if (wrongcounter = 8){
@@ -60,6 +68,7 @@ $(document).ready(function() {
   function initialize(event){
     myFunction(word, event)
   }
+  $("#lives").html(wrongcounter);
   var word_list = ["rose","monica","christi","fausto","kevin","oge","gonzalo","makenna","amelia","melissa","patrycja","luke","andrew","nicole","marcelo","jorge","jigar","harsh","ivana","david","dimitri","stevie","spratt","francesca","courtney","francisco","andy"];
   var number = Math.round((Math.random()*word_list.length));
   var word = word_list[number];
