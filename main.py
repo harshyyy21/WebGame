@@ -48,11 +48,6 @@ class MainHandler(webapp2.RequestHandler):
 
 
 class HangmanHandler(webapp2.RequestHandler):
-    # def initialize(self):
-    #     words = ["dog", "cat", "google", "spratt"]
-    #     num_guess = 0;
-    #     guess = ""
-
     def get(self):
         render_dict = {
         "letters": string.ascii_uppercase
