@@ -80,6 +80,7 @@ function myFunction(word, event) {
     $("#winner").html("You Win!");
     $("#form").show();
     user_score = wrongcounter;
+    $('#gettingscore').val(user_score);
 
   }
 }
@@ -102,6 +103,7 @@ $(document).ready(function() {
 
   if (wrongcounter == 8 ){
     $("#form").hide();
+    $("#hidescore").hide();
     $("#original").show();
     $("#head").hide();
     $("#body").hide();
