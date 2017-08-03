@@ -1,3 +1,14 @@
+<<<<<<< HEAD
 #dataHeaders{
   display:block;
+=======
+.left{
+  float: left;
+  width: 50%;
+}
+
+.right{
+  float: right;
+  width: 50%;
+>>>>>>> a4f149b2b67117d25b105c2920b4e3ee8ef1e0be
 }
