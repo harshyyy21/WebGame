@@ -19,6 +19,7 @@ import jinja2
 from google.appengine.ext import ndb
 import os
 from google.appengine.api import users
+global name
 
 import string
 
@@ -69,12 +70,15 @@ class HangmanHandler(webapp2.RequestHandler):
 
 class HighScoreHandler(webapp2.RequestHandler):
     def get(self):
-        # my_template = jinja_environment.get_template("templates/highschore.html")
-        # self.response.write(my_template.render())
-        getting_all_results = HighScoreModel.query()
-        for results in getting_all_results:
-            scorewrite= "<br/>" + results.username +"  " +str(results.score)
-            self.response.write(scorewrite)
+        my_template = jinja_environment.get_template("templates/highscore.html")
+        username = self.request.get("name")
+        my_usernames = HighScoreModel(username = username)
+        my_usernames.put()
+        getting_all_results = HighScoreModel.query().fetch()
+        render_data = {
+            'users' : getting_all_results
+        }
+        self.response.write(my_template.render(render_data))
 
 class AboutUsHandler(webapp2.RequestHandler):
     def get(self):
@@ -103,8 +107,6 @@ class MainPage(webapp2.RequestHandler):
 class HighScoreModel(ndb.Model):
     username = ndb.StringProperty()
     score = ndb.IntegerProperty()
-
-
 
 
 

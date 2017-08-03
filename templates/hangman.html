@@ -55,6 +55,12 @@
 
 
           <div id="container">
+            <form id = "form" action ="/highscore">
+              Want to save your score?
+
+              Enter a username: <input name = "name" type = "text">
+              <input type= "submit">
+            </form>
 
             <p align="center">
               <img id="original" src="resources/bodyParts/1original.png" width=30% height=30%/>
@@ -77,7 +83,6 @@
               <p id="correctguess"></p>
               {% for letter in letters %}
               <button type="button" id="{{letter}}btn" value="{{letter}}"> {{letter}} </button> {%endfor%}
-
               </br>
               </br>
               </br>

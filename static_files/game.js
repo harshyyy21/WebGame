@@ -1,5 +1,6 @@
 wrongcounter =8;
 correctcounter = 0;
+user_score = 0;
 function myFunction(word, event) {
   var y = event.target;
   $(y).prop("disabled", true);
@@ -77,14 +78,11 @@ function myFunction(word, event) {
   }
   if (correctcounter == word.length){
     $("#winner").html("You Win!");
+    $("#form").show();
+    user_score = wrongcounter;
 
   }
 }
-
-
-
-
-
 
 $(document).ready(function() {
   function initialize(event){
@@ -103,6 +101,7 @@ $(document).ready(function() {
   }
 
   if (wrongcounter == 8 ){
+    $("#form").hide();
     $("#original").show();
     $("#head").hide();
     $("#body").hide();
