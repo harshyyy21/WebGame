@@ -121,3 +121,8 @@ div.userlives {
 #gettingscore{
    opacity: 0.0;
 }
+
+form{
+    font-size: 20px;
+    text-align: center;
+}

@@ -7,3 +7,15 @@
   float: right;
   width: 50%;
  }
+
+ .page-content{
+   text-align: center;
+ }
+
+ li{
+   list-style-type: none;
+ }
+
+h3{
+  color: #3E4EB8;
+}

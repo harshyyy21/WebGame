@@ -76,10 +76,13 @@ function myFunction(word, event) {
 
 
   }
+  console.log(word.length);
+  console.log(correctcounter);
   if (correctcounter == word.length){
     $("#winner").html("You Win!");
     $("#form").show();
     user_score = wrongcounter;
+    console.log(user_score);
     $('#gettingscore').val(user_score);
 
   }
