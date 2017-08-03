@@ -118,6 +118,7 @@ class HighScoreModel(ndb.Model):
     score = ndb.IntegerProperty()
 
 
+
 app = webapp2.WSGIApplication([
     ('/home', MainHandler),
     ('/hangman', HangmanHandler),
