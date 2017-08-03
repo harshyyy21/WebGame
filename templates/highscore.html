@@ -1,14 +1,19 @@
 <html>
+
 <head>
+  <link rel="stylesheet" href="/resources/highscore.css" />
 </head>
 
 <body>
-<h1>Here are the usernames</h1>
-<ul>
-{%for user in users%}
-  <li>{{user.username}}   {{user.score}}</li>
-{%endfor%}
-</ul>
+  <h1>Here are the High Scores:</h1>
+  <span id="dataHeaders">
+    <h3> Username</h3> <h3> Score </h3>
+  </span>
+  <ul>
+    {%for user in users%}
+    <li>{{user.username}} {{user.score}}</li>
+    {%endfor%}
+  </ul>
 </body>
 
 
