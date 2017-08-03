@@ -56,17 +56,22 @@ class HangmanHandler(webapp2.RequestHandler):
         self.response.write(my_template.render(render_dict))
 
 class HighScoreHandler(webapp2.RequestHandler):
-    def get(self):
+    def writetemplate(self):
         my_template = jinja_environment.get_template("templates/highscore.html")
-        username = self.request.get("name")
-        userscore =int(self.request.get("gamescore"))
-        my_usernames = HighScoreModel(username = username, score= userscore)
-        my_usernames.put()
         getting_all_results = HighScoreModel.query().fetch()
         render_data = {
             'users' : getting_all_results
         }
         self.response.write(my_template.render(render_data))
+    def get(self):
+        self.writetemplate()
+    # @ndb.transactional(xg=True)
+    def post(self):
+        username = self.request.get("name")
+        userscore =int(self.request.get("gamescore"))
+        my_usernames = HighScoreModel(username = username, score= userscore)
+        my_usernames.put()
+        self.writetemplate()
 
 class AboutUsHandler(webapp2.RequestHandler):
     def get(self):
