@@ -59,7 +59,8 @@ class HighScoreHandler(webapp2.RequestHandler):
     def get(self):
         my_template = jinja_environment.get_template("templates/highscore.html")
         username = self.request.get("name")
-        my_usernames = HighScoreModel(username = username)
+        userscore =int(self.request.get("gamescore"))
+        my_usernames = HighScoreModel(username = username, score= userscore)
         my_usernames.put()
         getting_all_results = HighScoreModel.query().fetch()
         render_data = {
@@ -111,7 +112,6 @@ class MainPage(webapp2.RequestHandler):
 class HighScoreModel(ndb.Model):
     username = ndb.StringProperty()
     score = ndb.IntegerProperty()
-
 
 
 app = webapp2.WSGIApplication([

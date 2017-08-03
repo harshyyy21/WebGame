@@ -118,3 +118,6 @@ div.userlives {
     opacity: 0.4;
     cursor: not-allowed;
 }
+#gettingscore{
+   opacity: 0.0;
+}
