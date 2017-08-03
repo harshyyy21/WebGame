@@ -62,7 +62,7 @@ class HighScoreHandler(webapp2.RequestHandler):
         userscore =int(self.request.get("gamescore"))
         my_usernames = HighScoreModel(username = username, score= userscore)
         my_usernames.put()
-        getting_all_results = HighScoreModel.query().fetch()
+        getting_all_results = HighScoreModel.query().order(-HighScoreModel.score).fetch()
         render_data = {
             'users' : getting_all_results
         }
