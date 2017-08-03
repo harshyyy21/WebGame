@@ -22,6 +22,7 @@ from google.appengine.api import users
 global name
 
 import string
+import time
 
 
 jinja_environment = jinja2.Environment(
@@ -58,27 +59,19 @@ class HangmanHandler(webapp2.RequestHandler):
 class HighScoreHandler(webapp2.RequestHandler):
     def writetemplate(self):
         my_template = jinja_environment.get_template("templates/highscore.html")
-<<<<<<< HEAD
-        getting_all_results = HighScoreModel.query().fetch()
-=======
-        username = self.request.get("name")
-        userscore =int(self.request.get("gamescore"))
-        my_usernames = HighScoreModel(username = username, score= userscore)
-        my_usernames.put()
         getting_all_results = HighScoreModel.query().order(-HighScoreModel.score).fetch()
->>>>>>> 293632ade58d3eedca741b4908d753acd70b62ef
         render_data = {
             'users' : getting_all_results
         }
         self.response.write(my_template.render(render_data))
     def get(self):
         self.writetemplate()
-    # @ndb.transactional(xg=True)
     def post(self):
         username = self.request.get("name")
         userscore =int(self.request.get("gamescore"))
         my_usernames = HighScoreModel(username = username, score= userscore)
         my_usernames.put()
+        time.sleep(2)
         self.writetemplate()
 
 class AboutUsHandler(webapp2.RequestHandler):
