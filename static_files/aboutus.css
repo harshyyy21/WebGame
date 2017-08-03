@@ -3,7 +3,7 @@
   width: 456px;
   height: 356px;
   background: #fff;
-  float:left;
+  display: inline-block;
   margin-left: 10px;
 }
 
@@ -28,5 +28,5 @@
 .demo-card-event > .mdl-card__title,
 .demo-card-event > .mdl-card__actions,
 .demo-card-event > .mdl-card__actions > .mdl-button {
-  color: #3E4EB8;
+  color: black;
 }
