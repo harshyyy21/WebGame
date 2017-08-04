@@ -1,84 +1,74 @@
-wrongcounter =8;
+wrongcounter = 8;
 correctcounter = 0;
 user_score = 0;
+
 function myFunction(word, event) {
   var y = event.target;
   $(y).prop("disabled", true);
-  $(y).addClass("NoClick");
-  var x = event.target.value; // .id gets the button id
-  var res = $("#correctguess").html().concat(x);
-  var rightwrong = word.indexOf(x.toLocaleLowerCase());
-  $("#wrongguess").html("Wrong Guess!");
-  $("#wrongguess").hide()
+  if ($(y).val() == "hintclicked") {
+    $("#hint").hide()
+    $("#hintrevealed").show()
+  } else {
+    $(y).addClass("NoClick");
+    var x = event.target.value; // .id gets the button id
+    var res = $("#correctguess").html().concat(x);
+    var rightwrong = word.indexOf(x.toLocaleLowerCase());
+    $("#wrongguess").html("Wrong Guess!");
+    $("#wrongguess").hide()
 
 
-  if (rightwrong >= 0) {
-    for (i = 0; i < word.length; i++) {
-      if (x.toLocaleLowerCase() == word.charAt(i)) {
-        correctcounter +=1;
-        var guess = $("#correctguess").html();
-        var final = guess.substring(0, i * 3) + " " + x + " " + guess.substring((i + 1) * 3, guess.length);
-        $("#correctguess").html(final);
+    if (rightwrong >= 0) {
+      for (i = 0; i < word.length; i++) {
+        if (x.toLocaleLowerCase() == word.charAt(i)) {
+          correctcounter += 1;
+          var guess = $("#correctguess").html();
+          var final = guess.substring(0, i * 3) + " " + x + " " + guess.substring((i + 1) * 3, guess.length);
+          $("#correctguess").html(final);
+        }
       }
-    }
-  }
-
-  else {
-    $("#wrongguess").show();
-    wrongcounter -= 1;
-    $("#lives").html(wrongcounter);
+    } else {
+      $("#wrongguess").show();
+      wrongcounter -= 1;
+      $("#lives").html(wrongcounter);
 
 
-    if (wrongcounter == 7){
-      $("#original").hide();
-      $("#head").show();
+      if (wrongcounter == 7) {
+        $("#original").hide();
+        $("#head").show();
 
-    }
+      } else if (wrongcounter == 6) {
+        $("#head").hide();
+        $("#body").show();
 
-    else if(wrongcounter == 6){
-      $("#head").hide();
-      $("#body").show();
+      } else if (wrongcounter == 5) {
+        $("#body").hide();
+        $("#leftarm").show();
+      } else if (wrongcounter == 4) {
+        $("#leftarm").hide();
+        $("#rightarm").show();
+      } else if (wrongcounter == 3) {
+        $("#rightarm").hide();
+        $("#rightleg").show();
+      } else if (wrongcounter == 2) {
+        $("#rightleg").hide();
+        $("#leftleg").show();
+      } else if (wrongcounter == 1) {
+        $("#leftleg").hide();
+        $("#eyes").show();
+      } else {
+        $("#eyes").hide();
+        $("#sadface").show();
+        $("#wrongguess").html("GAME OVER!");
 
-    }
 
-    else if(wrongcounter == 5){
-      $("#body").hide();
-      $("#leftarm").show();
-    }
-
-    else if(wrongcounter == 4){
-      $("#leftarm").hide();
-      $("#rightarm").show();
-    }
-
-    else if(wrongcounter ==3){
-      $("#rightarm").hide();
-      $("#rightleg").show();
-    }
-
-    else if(wrongcounter == 2){
-      $("#rightleg").hide();
-      $("#leftleg").show();
-    }
-
-    else if(wrongcounter == 1){
-      $("#leftleg").hide();
-      $("#eyes").show();
-    }
-
-    else{
-      $("#eyes").hide();
-      $("#sadface").show();
-      $("#wrongguess").html("GAME OVER!");
+      }
 
 
     }
-
-
   }
   console.log(word.length);
   console.log(correctcounter);
-  if (correctcounter == word.length){
+  if (correctcounter == word.length) {
     $("#winner").html("You Win!");
     $("#form").show();
     user_score = wrongcounter;
@@ -89,13 +79,20 @@ function myFunction(word, event) {
 }
 
 $(document).ready(function() {
-  function initialize(event){
+  function initialize(event) {
     myFunction(word, event)
   }
   $("#lives").html(wrongcounter);
-  var word_list = ["rose","monica","christi","fausto","kevin","oge","gonzalo","makenna","amelia","melissa","patrycja","luke","andrew","nicole","marcelo","jorge","jigar","harsh","ivana","david","dimitri","stevie","spratt","francesca","courtney","francisco","andy"];
-  var number = Math.round((Math.random()*word_list.length));
-  var word = word_list[number];
+  cssi_list = ["CSSI Names", "rose", "monica", "christi", "fausto", "kevin", "oge", "gonzalo", "makenna", "amelia", "melissa", "patrycja", "luke", "andrew", "nicole", "marcelo", "jorge", "jigar", "harsh", "ivana", "david", "dimitri", "stevie", "spratt", "francesca", "courtney", "francisco", "andy"];
+  animals_list = ["Animals", "alligator", "camel", "cheetah", "chimpanzee", "crocodile", "dolphin", "elephant", "giraffe", "goldfish", "kangaroo", "octopus", "panda", "scorpion", "squirrel", "zebra", "turtle"];
+  fruits_list = ["Fruits", "apple", "banana", "cherry", "strawberry", "watermelon", "peach", "pineapple", "grapes", "tangerine"];
+  disney_list = ["Disney Characters", "cinderella", "mulan", "rapunzel", "belle", "ariel", "pocahontas", "jasmine", "tiana", "anna", "elsa", "goofy", "tigger", "pluto"];
+  all_lists = [cssi_list, animals_list, fruits_list, disney_list];
+  picklist = Math.round((Math.random() * (all_lists.length - 1)));
+  list_in_play = all_lists[picklist];
+  $("#category").html(list_in_play[0].toString());
+  var number = Math.round((Math.random() * (list_in_play.length - 1) + 1));
+  var word = list_in_play[number];
   var spaces = word.length;
   var i = 0;
 
@@ -104,7 +101,8 @@ $(document).ready(function() {
     i++;
   }
 
-  if (wrongcounter == 8 ){
+  if (wrongcounter == 8) {
+    $("#hintrevealed").hide();
     $("#form").hide();
     $("#hidescore").hide();
     $("#original").show();
@@ -117,11 +115,9 @@ $(document).ready(function() {
     $("#eyes").hide();
     $("#sadface").hide();
 
-    }
-
+  }
   $("button").click(initialize);
 
 
 
-}
-)
+})

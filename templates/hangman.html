@@ -56,12 +56,9 @@
 
           <div id="container">
             <br>
-            <form id = "form" action ="/highscore" method= "post">
-              <input name= "gamescore" type="number" id="gettingscore" value="">
-              Want to save your score?
-
-              Enter a username:<input name = "name" type = "text">
-              <input type= "submit">
+            <form id="form" action="/highscore" method="post">
+              <input name="gamescore" type="number" id="gettingscore" value=""> Want to save your score? Enter a Nickname:<input name="name" type="text">
+              <input type="submit">
             </form>
             <p align="center">
               <img id="original" src="resources/bodyParts/1original.png" width=30% height=30%/>
@@ -84,12 +81,11 @@
               <p id="correctguess"></p>
               {% for letter in letters %}
               <button type="button" id="{{letter}}btn" value="{{letter}}"> {{letter}} </button> {%endfor%}
-              </br>
-              </br>
-              </br>
-              <button id="hint" type="button"> HINT </button>
+              <br>
+              <br>
+              <button id="hint" type="button" value="hintclicked"> HINT </button>
               <button id="playagain" type="button" value="Refresh Page" onClick="window.location.reload()"> PLAY AGAIN! </button>
-
+              <span id="hintrevealed"> Hint: The category is  <span id="category"></span>!</span>
 
             </div>
           </div>
