@@ -37,14 +37,19 @@ class MainHandler(webapp2.RequestHandler):
         logout_url = users.create_logout_url('/home')
         if user:
             nickname = user.nickname()
-            greeting = 'Welcome, {}! (<a href="{}">sign out</a>)'.format(
-                nickname, logout_url)
+            firstletter = nickname[0]
+            greeting = 'Welcome, {}! (<a href="{}">sign out</a>)'.format(nickname, logout_url)
         else:
             greeting = '<a href="%s">Sign in</a>' % (login_url)
+            firstletter = ''
 
         my_template = jinja_environment.get_template("templates/home.html")
+        render_dict = {
+            'greeting' : greeting,
+            'firstletter' : firstletter
 
-        self.response.write(my_template.render())
+        }
+        self.response.write(my_template.render(render_dict))
 
 
 
