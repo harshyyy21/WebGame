@@ -87,7 +87,9 @@ $(document).ready(function() {
   animals_list = ["Animals", "alligator", "camel", "cheetah", "chimpanzee", "crocodile", "dolphin", "elephant", "giraffe", "goldfish", "kangaroo", "octopus", "panda", "scorpion", "squirrel", "zebra", "turtle"];
   fruits_list = ["Fruits", "apple", "banana", "cherry", "strawberry", "watermelon", "peach", "pineapple", "grapes", "tangerine"];
   disney_list = ["Disney Characters", "cinderella", "mulan", "rapunzel", "belle", "ariel", "pocahontas", "jasmine", "tiana", "anna", "elsa", "goofy", "tigger", "pluto"];
-  all_lists = [cssi_list, animals_list, fruits_list, disney_list];
+  cities_list = ["U.S Cities", "atlanta", "chicago", "austin", "boston", "denver", "seattle", "detroit", "indianapolis", "houston", "baltimore", "minneapolis", "philadelphia", "phoenix", "columbus", "nashville", "jacksonville", "dallas", "memphis", "miami", "orlando", "milwaukee", "portland", "tucson", "cleveland", "tampa", "cincinnati", "omaha"]
+  states_list = ["U.S States", "alabama", "alaska", "arizona", "arkansas", "california", "colorado", "connecticut", "delaware", "florida", "georgia", "hawaii", "idaho", "illinois", "indiana", "iowa", "kansas", "kentucky", "louisiana", "maine", "maryland", "massachusetts", "michigan", "minnesota", "mississippi", "missouri", "montana", "nebraska", "nevada", "ohio", "oklahoma", "oregon", "pennsylvania", "tennessee", "texas", "utah", "vermont", "virginia", "washington", "wisconsin", "wyoming",]
+  all_lists = [cssi_list, animals_list, fruits_list, disney_list, cities_list, states_list];
   picklist = Math.round((Math.random() * (all_lists.length - 1)));
   list_in_play = all_lists[picklist];
   $("#category").html(list_in_play[0].toString());
